@@ -1,9 +1,17 @@
+/**
+ * 野球チームを表すクラス.
+ */
 export class Team {
   constructor(
+    // id
     private _id: number,
+    // 野球チームの名前
     private _teamName: string,
+    // 本拠地
     private _homeStadium: string,
-    private _born: string,
+    // 発足日
+    private _born: Date,
+    // 歴史
     private _history: string
   ) {}
 
@@ -31,11 +39,11 @@ export class Team {
     this._homeStadium = homeStadium;
   }
 
-  public get born(): string {
+  public get born(): Date {
     return this._born;
   }
 
-  public set born(born: string) {
+  public set born(born: Date) {
     this._born = born;
   }
 
