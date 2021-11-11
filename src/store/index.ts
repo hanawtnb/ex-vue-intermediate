@@ -177,6 +177,18 @@ export default new Vuex.Store({
         return hitTeamID[0];
       };
     },
+
+    getSearchHotel(state) {
+      return (price: number) => {
+        const hitHotel = [];
+        for (const hotel of state.hotels) {
+          if (hotel.price <= price) {
+            hitHotel.push(hotel);
+          }
+        }
+        return hitHotel;
+      };
+    },
   }, // end getters
   modules: {}, // end modules
 });

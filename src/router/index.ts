@@ -28,6 +28,11 @@ const routes: Array<RouteConfig> = [
     component: () => import("../views/BaseballTeamDetail.vue"),
     // component: () => import("../views/Ex01Detail.vue"),
   },
+  {
+    path: "/searchHotel",
+    component: () => import("../views/SearchHotel.vue"),
+    // component: () => import("../views/Ex01Detail.vue"),
+  },
 ];
 
 const router = new VueRouter({
