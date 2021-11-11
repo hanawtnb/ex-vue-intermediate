@@ -1,5 +1,5 @@
 /**
- * 野球チームを表すクラス.
+ * 野球チームを表す部品用のクラス.
  */
 export class Team {
   constructor(
