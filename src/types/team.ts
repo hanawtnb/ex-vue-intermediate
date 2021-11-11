@@ -56,9 +56,10 @@ export class Team {
   }
 
   get getBornDate(): string {
+    const MOON_ADJUSTMENT = 1;
     const year = this.born.getFullYear();
     const month = this.born.getMonth();
     const day = this.born.getDate();
-    return year + "年" + month + "月" + day + "日";
+    return year + "年" + (month + MOON_ADJUSTMENT) + "月" + day + "日";
   }
 }
