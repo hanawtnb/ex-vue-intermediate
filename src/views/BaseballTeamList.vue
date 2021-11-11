@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <h1>野球チーム一覧</h1>
-    <div v-for="team of getBaseBallTeams" v-bind:key="team.id">
-      <router-link :to="'/baseballTeamDetail/' + team.id">
-        {{ team.teamName }}
-      </router-link>
+    <div class="list">
+      <h1>野球チーム一覧</h1>
+      <div v-for="team of getBaseBallTeams" v-bind:key="team.id">
+        <router-link :to="'/baseballTeamDetail/' + team.id">
+          {{ team.teamName }}
+          <br />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -21,4 +24,13 @@ export default class BaseballTeamList extends Vue {
 }
 </script>
 
-<style></style>
+<style>
+.container {
+  text-align: center;
+}
+
+.list {
+  display: inline-block;
+  text-align: left;
+}
+</style>
