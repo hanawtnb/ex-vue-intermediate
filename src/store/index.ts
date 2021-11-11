@@ -142,4 +142,17 @@ export default new Vuex.Store({
       ),
     ],
   }, // end state
+
+  actions: {},
+  // end actions
+
+  mutations: {},
+  // end mutations
+
+  getters: {
+    getBaseBallTeams(state) {
+      return state.teams;
+    },
+  }, // end getters
+  modules: {}, // end modules
 });
