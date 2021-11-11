@@ -55,7 +55,13 @@ export class Team {
     this._history = history;
   }
 
-  get getBornDate(): string {
+  /**
+   * 発足日をフォーマットして返す.
+   *
+   * @remarks
+   * 発足日を"yyyy年MM月dd日"の形にフォーマットして返す。
+   */
+  get formatBorn(): string {
     const MOON_ADJUSTMENT = 1;
     const year = this.born.getFullYear();
     const month = this.born.getMonth();

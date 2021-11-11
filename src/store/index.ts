@@ -150,10 +150,22 @@ export default new Vuex.Store({
   // end mutations
 
   getters: {
+    /**
+     * 野球チームのリストを返す.
+     *
+     * @param state ステートオブジェクト。
+     * @returns 野球チームの一覧を返す。
+     */
     getBaseBallTeams(state) {
       return state.teams;
     },
 
+    /**
+     * idから表示する野球チームを取得して返す.
+     *
+     * @param state ステートオブジェクト。
+     * @returns 0番目の配列の野球チームを返す。
+     */
     getBaseballTeamID(state) {
       return (id: number) => {
         const hitTeamID = [];

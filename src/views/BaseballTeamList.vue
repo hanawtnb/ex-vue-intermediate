@@ -2,10 +2,13 @@
   <div class="container">
     <div class="list">
       <h1>野球チーム一覧</h1>
-      <div v-for="team of getBaseBallTeams" v-bind:key="team.id">
+      <div
+        class="teamNames"
+        v-for="team of getBaseBallTeams"
+        v-bind:key="team.id"
+      >
         <router-link :to="'/baseballTeamDetail/' + team.id">
           {{ team.teamName }}
-          <br />
         </router-link>
       </div>
     </div>
@@ -18,6 +21,9 @@ import { Team } from "@/types/team";
 
 @Component
 export default class BaseballTeamList extends Vue {
+  /**
+   * 野球チームのリストを取得して返す.
+   */
   get getBaseBallTeams(): Team {
     return this["$store"].getters.getBaseBallTeams;
   }
@@ -32,5 +38,8 @@ export default class BaseballTeamList extends Vue {
 .list {
   display: inline-block;
   text-align: left;
+}
+.teamNames {
+  padding-bottom: 10px;
 }
 </style>

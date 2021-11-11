@@ -6,7 +6,7 @@
       <div class="topic">本拠地</div>
       {{ currentTeam.homeStadium }}
       <div class="topic">発足日</div>
-      {{ getBornDate }}
+      {{ currentTeam.formatBorn }}
       <div class="topic">歴史</div>
       <pre>{{ currentTeam.history }}</pre>
       <br />
@@ -23,16 +23,19 @@ import { Team } from "@/types/team";
 
 @Component
 export default class BaseballTeamDetail extends Vue {
+  // 現在指定されているチーム
   private currentTeam!: Team;
-
+  /**
+   * 表示されるチームを取得して返す.
+   */
   created(): void {
     const baseballTeamId = parseInt(this["$route"].params.id);
     this.currentTeam = this["$store"].getters.getBaseballTeamID(baseballTeamId);
   }
 
-  get getBornDate(): string {
-    return this.currentTeam.getBornDate;
-  }
+  // get getBornDate(): string {
+  //   return this.currentTeam.getBornDate;
+  // }
 }
 </script>
 
