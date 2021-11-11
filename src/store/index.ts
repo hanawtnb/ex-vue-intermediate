@@ -1,3 +1,5 @@
+import { Hotel } from "@/types/hotel";
+import { Team } from "@/types/team";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -138,13 +140,6 @@ export default new Vuex.Store({
         15000,
         true
       ),
-    ],
-    clothes: [
-      new Clothe(10, "洋服", "ジャケット", 0, "赤", 10000, "S"),
-      new Clothe(20, "洋服", "パンツ", 0, "白", 20000, "M"),
-      new Clothe(30, "洋服", "Ｔシャツ", 1, "青", 5000, "M"),
-      new Clothe(40, "洋服", "帽子", 1, "白", 10000, "S"),
-      new Clothe(50, "洋服", "ジャケット", 0, "黄", 15000, "L"),
     ],
   }, // end state
 });
