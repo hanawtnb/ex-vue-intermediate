@@ -54,4 +54,11 @@ export class Team {
   public set history(history: string) {
     this._history = history;
   }
+
+  get getBornDate(): string {
+    const year = this.born.getFullYear();
+    const month = this.born.getMonth();
+    const day = this.born.getDate();
+    return year + "年" + month + "月" + day + "日";
+  }
 }

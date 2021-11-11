@@ -26,6 +26,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/baseballTeamDetail/:id",
     component: () => import("../views/BaseballTeamDetail.vue"),
+    // component: () => import("../views/Ex01Detail.vue"),
   },
 ];
 

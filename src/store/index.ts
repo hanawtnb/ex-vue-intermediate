@@ -153,6 +153,18 @@ export default new Vuex.Store({
     getBaseBallTeams(state) {
       return state.teams;
     },
+
+    getBaseballTeamID(state) {
+      return (id: number) => {
+        const hitTeamID = [];
+        for (const team of state.teams) {
+          if (team.id === id) {
+            hitTeamID.push(team);
+          }
+        }
+        return hitTeamID[0];
+      };
+    },
   }, // end getters
   modules: {}, // end modules
 });
