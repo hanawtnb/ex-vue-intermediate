@@ -1,11 +1,21 @@
+/**
+ * ホテルを表す部品クラス
+ */
 export class Hotel {
   constructor(
+    // id
     private _id: number,
+    // エリア名
     private _area: string,
+    // ホテル名
     private _name: string,
+    // 住所
     private _address: string,
+    // 最寄駅
     private _station: string,
+    // 価格
     private _price: number,
+    // 駐車場の有無
     private _canStay: boolean
   ) {}
 
