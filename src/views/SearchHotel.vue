@@ -2,7 +2,7 @@
   <div class="container">
     <div class="searchHotel">
       <div class="title">ホテル検索</div>
-      <div><input type="number" v-model="price" />円以下</div>
+      <div><input type="text" v-model="price" />円以下</div>
       <br />
       <button
         class="waves-effect waves-light btn"
@@ -12,8 +12,8 @@
         検索
       </button>
       <div class="showHitHotels">
-        <div v-for="hotel of hitHotels" v-bind:key="hotel">
-          <table border="1">
+        <div v-for="hotel of hitHotels" v-bind:key="hotel.id">
+          <table class="highlite">
             <tr>
               <th>ホテル名</th>
               <td>{{ hotel.name }}</td>
@@ -35,15 +35,22 @@
 </template>
 
 <script lang="ts">
+// import { Hotel } from "@/types/hotel";
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class SearchHotel extends Vue {
-  private price = 0;
+  private price = "";
   private hitHotels = [];
 
   onSearchHotel(): void {
-    this.hitHotels = this["$store"].getters.getSearchHotel(this.price);
+    let searchPrice = this.price;
+    if (searchPrice == "") {
+      this.hitHotels = this["$store"].getters.getAllHotel;
+    } else {
+      this.hitHotels =
+        this["$store"].getters.getSearchHotelLessThanPrice(searchPrice);
+    }
   }
 }
 </script>

@@ -174,11 +174,16 @@ export default new Vuex.Store({
             hitTeamID.push(team);
           }
         }
+        // 配列を返すのではなく、検索した中の一つを返す。
         return hitTeamID[0];
       };
     },
 
-    getSearchHotel(state) {
+    getAllHotel(state) {
+      return state.hotels;
+    },
+
+    getSearchHotelLessThanPrice(state) {
       return (price: number) => {
         const hitHotel = [];
         for (const hotel of state.hotels) {
