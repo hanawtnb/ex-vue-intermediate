@@ -7,7 +7,7 @@
       <button
         class="waves-effect waves-light btn"
         type="button"
-        v-on:click="onSearchHotel(price)"
+        v-on:click="onSearchHotel"
       >
         検索
       </button>
@@ -42,7 +42,9 @@ import { Component, Vue } from "vue-property-decorator";
 export default class SearchHotel extends Vue {
   private price = "";
   private hitHotels = [];
-
+  /**
+   *ホテルを検索して返す.
+   */
   onSearchHotel(): void {
     let searchPrice = this.price;
     if (searchPrice == "") {
