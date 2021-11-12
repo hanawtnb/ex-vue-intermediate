@@ -1,3 +1,4 @@
+import { Clothe } from "@/types/clothes";
 import { Hotel } from "@/types/hotel";
 import { Team } from "@/types/team";
 import Vue from "vue";
@@ -141,6 +142,13 @@ export default new Vuex.Store({
         true
       ),
     ],
+    clothes: [
+      new Clothe(10, "洋服", "ジャケット", 0, "赤", 10000, "S"),
+      new Clothe(20, "洋服", "パンツ", 0, "白", 20000, "M"),
+      new Clothe(30, "洋服", "Ｔシャツ", 1, "青", 5000, "M"),
+      new Clothe(40, "洋服", "帽子", 1, "白", 10000, "S"),
+      new Clothe(50, "洋服", "ジャケット", 0, "黄", 15000, "L"),
+    ],
   }, // end state
 
   actions: {},
@@ -178,12 +186,23 @@ export default new Vuex.Store({
         return hitTeamID[0];
       };
     },
-
+    /**
+     *全てホテルを返す.
+     * @param state ステートオブジェクト
+     * @returns 全てのホテルをかえす
+     */
     getAllHotel(state) {
       return state.hotels;
     },
-
+    /**
+     * 検索してホテルを返す.
+     *
+     * @param state ステートオブジェクト
+     * @returns
+     */
     getSearchHotelLessThanPrice(state) {
+      // getterではない関数はpayloadで引数を渡せないので、
+      // 関数を返すことによって引数を渡すようにしている。
       return (price: number) => {
         const hitHotel = [];
         for (const hotel of state.hotels) {
@@ -192,6 +211,20 @@ export default new Vuex.Store({
           }
         }
         return hitHotel;
+      };
+    },
+
+    getClothesByGenderAndColor(state) {
+      return (gender: number, color: string) => {
+        console.log("性別:" + gender + "/色:" + color);
+        const hitItem = [];
+        for (const clothes of state.clothes) {
+          if (clothes.gender == gender && clothes.color == color) {
+            hitItem.push(clothes);
+          }
+        }
+
+        return hitItem;
       };
     },
   }, // end getters

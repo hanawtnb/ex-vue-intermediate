@@ -33,6 +33,11 @@ const routes: Array<RouteConfig> = [
     component: () => import("../views/SearchHotel.vue"),
     // component: () => import("../views/Ex01Detail.vue"),
   },
+  {
+    path: "/ex03",
+    component: () => import("../views/Ex03.vue"),
+    // component: () => import("../views/Ex01Detail.vue"),
+  },
 ];
 
 const router = new VueRouter({
